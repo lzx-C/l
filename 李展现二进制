@@ -1,0 +1,28 @@
+import time,wx
+
+app = wx.App()
+win = wx.Frame(None, title="Hello World",size=(1000, 600))
+pnl = wx.Panel(win)
+
+def click(event):
+    # 获取输入框中的内容
+    input_text = input.GetValue()
+    # 输出内容
+    l2.SetLabel(str(int(input_text,2)))
+    # 等待1秒
+    time.sleep(1)
+    # 清空输入框
+    input.Clear()
+
+win.SetBackgroundColour('white')
+
+l1 = wx.StaticText(win, label="请输入二进制数：", pos=(10, 10))
+input = wx.TextCtrl(win, pos=(10,30), size=(780, 30))
+button = wx.Button(win, label="计算", pos=(800, 30), size=(100, 30))
+button.Bind(wx.EVT_BUTTON, click)
+l2 = wx.StaticText(win, label="无", pos=(10, 80))
+
+
+win.Show(True)
+
+app.MainLoop()
